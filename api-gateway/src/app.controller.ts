@@ -9,7 +9,6 @@ import { CriarCategoriaDto } from './dtos/criar-categoria.dto';
 
 @Controller('api/v1')
 export class AppController {
-  private readonly logger = new Logger(AppController.name);
   private readonly clientAdminBackend: ClientProxy = ClientProxyFactory.create({
     transport: Transport.RMQ,
     options: {
@@ -21,6 +20,7 @@ export class AppController {
   @Post('categorias')
   @UsePipes(ValidationPipe)
   async criarCategoria(@Body() criarCategoriaDto: CriarCategoriaDto) {
+    // * Event Emitter
     return await this.clientAdminBackend.emit(
       'criar-categoria',
       criarCategoriaDto,
