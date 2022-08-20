@@ -1,4 +1,4 @@
-import { Body, Logger, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { Controller } from '@nestjs/common';
 import {
   ClientProxy,
